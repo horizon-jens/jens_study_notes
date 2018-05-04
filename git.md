@@ -57,6 +57,12 @@ HEAD指向的版本就是当前版本，因此，Git允许我们在版本的历�
 关联后，使用命令git push -u origin master第一次推送master分支的所有内容；  
 此后，每次本地提交后，只要有必要，就可以使用命令git push origin master推送最新修改；  
 
+>>>注意：  
+git push origin master  =>  将本地的master分支推送到origin主机的master分支。如果master不存在，则会被新建。  
+git push origin  =>  将当前分支推送到origin主机的对应分支。如果当前分支只有一个追踪分支，那么主机名都可以省略。  
+git push -u origin master  =>  如果当前分支与多个主机存在追踪关系，则可以使用-u选项指定一个默认主机，这样后面就可以不加任何参数使用git push。  
+
+
 >>>多人协作的工作模式：  
 1.首先，可以试图用git push origin branch-name推送自己的修改；  
 2.如果推送失败，则因为远程分支比你的本地更新，需要先用git pull试图合并；  
