@@ -83,5 +83,26 @@ DOM事件流包括三个阶段:
 2.处于目标阶段  
 3.事件冒泡阶段   
 ps:事件冒泡即事件开始时，由最具体的元素接收（也就是事件发生所在的节点），然后逐级传播到较为不具体的节点。 
-<img src="./2.png" style="max-width:600px"/>
+<img src="./event.png" style="max-width:600px"/>
 上图表明DOM处理事件流的三个阶段，而Event对象就是这个过程中产生的 <a href="https://www.w3.org/TR/DOM-Level-3-Events/#dom-event-architecture" target="_blank">了解详情</a>
+
+#### 注册事件监听器
+1.EventTarget.addEventListener  
+```javascript
+// 假设 myButton 是一个按钮
+myButton.addEventListener('click', function(){alert('Hello world');}, false);
+//addEventListener最后一个参数， 
+//为true则代表使用事件捕获模式 ，
+//false则表示使用事件冒泡模式。
+```
+2.HTML属性  
+```
+<button onclick="alert('Hello world!')">
+```
+3.DOM元素属性  
+```
+// 假设 myButton 是一个按钮
+myButton.onclick = function(event){alert('Hello world');};
+```
+
+
